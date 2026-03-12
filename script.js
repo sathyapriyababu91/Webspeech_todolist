@@ -6,14 +6,15 @@ if(!SpeechRecognition){
 }else{
     const recognition = new SpeechRecognition();
 
+
     recognition.continuous = true;
     recognition.interimResults = true;
-    recognition.lang = 'en-In';
+    recognition.lang = "en-IN";
 
     const output = document.getElementById("result");
-    const input = document.getElementById("taskInput")
-    const language = document.getElementById("language")
-    const list = document.getElementById("tasklist")
+    const input = document.getElementById("taskInput");
+    const language = document.getElementById("language");
+    const list = document.getElementById("taskList");
     
     const start = document.getElementById("start-btn");
     const stop = document.getElementById("stop-btn");
@@ -28,25 +29,35 @@ if(!SpeechRecognition){
 
     stop.addEventListener("click" , () => {
         recognition.stop();
-        start.classList.add("listening");
+        start.classList.remove("listening");
     });
 
     recognition.onresult = (e) => {
-        let transcript = "";
+       const result = e.results[e.resultIndex];
 
-        for(let i = e.resultIndex; i < e.results.length; i++){
-            transcript += e.results[i][0].transcript;   
-        }
+       if(result.isFinal){
+        const transcript = result[0].transcript.trim();
+
     
     output.innerText = transcript;
     input.value = transcript;
+    
 
     const li = document.createElement("li");
-    li.innerText = transcript;
+        li.innerHTML = `${transcript}
+        <button class="delete-btn">❌</button>`;
+    
     
     list.appendChild(li);
 
+        const deleteBtn = li.querySelector(".delete-btn");
 
-}
+    deleteBtn.addEventListener("click", () => {
+        li.remove();
 
+
+
+});
+}       
+};
 }
