@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Make model Todo list">
+    <title>Speech Todo list</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Speech Todo List</h2>
+        <div class="input-container">
+            <input type="text" id="taskInput">
+
+       <select id="language">
+             <option value="en-US">English</option>
+             <option value="ta-IN">Tamil</option>
+       </select>
+
+            <button id="start-btn">
+                <i class="fa-solid fa-microphone"></i>
+
+            </button>
+            <button id="stop-btn">
+                <i class="fa-solid fa-stop"></i>
+
+            </button>
+            <ul id="taskList"></ul>
+        </div>
+
+        <div id="result"></div>
+
+
+    </div>
+
+        <script src="script.js"></script>
+</body>
+</html>
