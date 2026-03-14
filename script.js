@@ -7,8 +7,8 @@ if(!SpeechRecognition){
     const recognition = new SpeechRecognition();
 
 
-    recognition.continuous = true;
-    recognition.interimResults = true;
+    recognition.continuous = false;
+    recognition.interimResults = false;
     recognition.lang = "en-IN";
 
     const output = document.getElementById("result");
@@ -32,18 +32,15 @@ if(!SpeechRecognition){
         start.classList.remove("listening");
     });
 
-    recognition.onresult = (e) => {
-       const result = e.results[e.resultIndex];
-
-       if(result.isFinal){
-        const transcript = result[0].transcript.trim();
-
+    recognition.onresult = (event) => {
+     const transcript = event.results[0][0].transcript.trim();
     
     output.innerText = transcript;
     input.value = transcript;
     
 
     const li = document.createElement("li");
+
         li.innerHTML = `${transcript}
         <button class="delete-btn">❌</button>`;
     
@@ -58,6 +55,9 @@ if(!SpeechRecognition){
 
 
 });
-}       
+};       
+    recognition.onerror = (event) => {
+        output.innerText = "Error: " + event.error;
+
 };
 }
