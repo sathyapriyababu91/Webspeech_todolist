@@ -1,39 +1,38 @@
 body{
-    background: #74bd80;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-family: Arial, Helvetica, sans-serif;
+font-family:Arial;
+background:#eee;
+text-align:center;
 }
-
 
 .container{
-    background:white;
-    padding:25px;
-    width:400px;
-    border-radius:12px;
-    box-shadow:0 6px 20px rgba(0,0,0,0.1);
- 
+width:450px;
+height: 350px;
+margin:auto;
+background:rgb(29,35,128);
+padding:20px;
+border-radius:10px;
 }
-.input-container{
-    background-color: rgb(169, 169, 221);
-    padding: 20px;
-    border-radius: 10px;
+
+.inputbox{
+display:flex;
+gap:5px;
+margin-bottom:10px;
 }
-#input{
-    padding: 6px;
-    outline: none;
-    border: none;
-    border-radius: 6px;
+
+input{
+padding:8px;
+border-radius: 6px;
+border: none;
+outline: none;
 }
-#result{
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-top: 20px;
-    min-height: 100px;
-    border-radius: 5px;
-    width: 300px;
+
+#language{
+border: none;
+border-radius:10px;
+padding: 10px;
+outline: none;
+
+
 }
 
 button{
@@ -43,57 +42,64 @@ button{
     border-radius:10px;
     color:white;
     cursor:pointer;
+    width:100%;
 
 }
-#start-btn{
-    background:#ff4d4d;
-    color:white;
+.delete{
+    background: #717477;
+    width: 55%;
+    padding: 5px;
+    border: none;
+
 }
 
-#stop-btn{
-    background:#333;
-    color:white;
-}
 button:hover{
     opacity:0.8;
 }
 
-#language{
-    padding: 5px;
-    border-radius: 5px;
-    border:none;
-    background-color: aqua;
-    cursor: pointer;
-    outline: none;
-}
-.delete-btn{
-    float:right;
-    background:red;
+
+#start-btn{
+    background:#20a80e;
     color:white;
-    border:none;
-    border-radius:4px;
-    cursor:pointer;
-    padding:2px 6px;
 }
 
-.delete-btn:hover{
-    background:darkred;
+#stop-btn{
+    background:#e60808;
+    color:white;
+}
+#add-btn{
+    background:#007bff;
+;
+    color: black;
 }
 
-.listening{
-    animation: pulse 1s infinite;
+button:hover{
+    opacity:0.8;
 }
 
-@keyframes pulse{
-    0%{ transform:scale(1); }
-    50%{ transform:scale(1.2); }
-    100%{ transform:scale(1); }
+li{
+display:flex;
+justify-content:space-between;
+padding:8px;
+border-bottom:1px solid #eee;
 }
-@media (max-width: 600px) {
-    body{
-        background:lightblue;
-    }
-    .container{
-        width: ;
-    }
+
+@media (max-width:768px){
+
+.container{
+width:80%;
 }
+
+input{
+width:100%;
+}
+
+button{
+font-size:16px;
+padding:8px 12px;
+}
+
+}
+
+
+
